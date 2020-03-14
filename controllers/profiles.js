@@ -5,5 +5,8 @@ module.exports = {
     },
     getProfile: function (id) {
         return id;
-    }
+    },
+    addProfile: function (profileData) {
+        return id;
+    },
 };

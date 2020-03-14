@@ -10,21 +10,21 @@ module.exports = {
         return "Baby";
     },
 
-    sendMail: function() {
+    sendMail: function(recievers, subject, message) {
         console.log(auth_data.name);
         console.log(auth_data.pass);
 
         var mailOptions = {
-            from: 'noreplyemailinglist@gmail.com',
-            to: 'tamasfun@gmail.com',
-            subject: 'Sending Email using Node.js',
-            text: 'That was easy!'
+            from: auth_data.name,
+            to: recievers,
+            subject: subject,
+            text: message
         };
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: 'noreplyemailinglist@gmail.com',
-              pass: 'themactal'
+              user: auth_data.name,
+              pass: auth_data.pass
             }
         });
         transporter.sendMail(mailOptions, function(error, info){
