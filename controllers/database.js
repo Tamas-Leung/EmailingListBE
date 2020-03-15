@@ -1,7 +1,7 @@
 const assert = require("assert");
 const admin = require('firebase-admin');
 
-let serviceAccount = require('emailinglist-a2588-firebase-adminsdk-f497s-244a6d51df.json');
+let serviceAccount = require('./emailinglist-a2588-firebase-adminsdk-f497s-244a6d51df.json');
 
 let db;
 
@@ -17,6 +17,7 @@ function initDb(callback) {
     }
 
     admin.initializeApp({credential: admin.credential.cert(serviceAccount)});
+    db = admin.firestore();
 }
 
 function getDb() {
